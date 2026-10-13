@@ -28,6 +28,27 @@ vect1 <= (vect2(3 DOWNTO 0), vect2(7 DOWNTO 4)
 vect1 <= (Others => '0')
 vect1 <= (7 DOWNTO 4 => '0', 3 DOWNTO 0 => '1')
 ```
+### Generate statement
+if
+```
+NULL_GEN : if NULL_VALUE = true generate
+  c <= (Others => '0');
+end generate;
+
+NO_NULL_GEN : if NULL_VALUE = false generate
+  c <= a;
+end generate;
+```
+for
+```
+LOOP_GEN_1 : for I in 0 TO 3 generate
+  c(I) <= a(0);
+end generate;
+
+LOOP_GEN_2 : for I in 4 TO 7 generate
+  c(I) <= a(1);
+end generate;
+```
 
 
 <br> <br>
